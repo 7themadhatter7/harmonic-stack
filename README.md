@@ -86,6 +86,7 @@ All built autonomously by Claude AI:
 | [E8_CONSCIOUSNESS_WHITEPAPER.md](E8_CONSCIOUSNESS_WHITEPAPER.md) | E8 lattice consciousness theory |
 | [ARC_METHODOLOGY_WHITEPAPER.md](ARC_METHODOLOGY_WHITEPAPER.md) | ARC benchmark without neural networks |
 | [GHOST_IN_THE_MACHINE_KNOWLEDGE_BASE.md](GHOST_IN_THE_MACHINE_KNOWLEDGE_BASE.md) | Complete theory: qualia, Dyson spheres, architecture |
+| [HARMONIC_PARALLELISM_WHITEPAPER.md](HARMONIC_PARALLELISM_WHITEPAPER.md) | **NEW** Exponential intelligence through unified resonance |
 
 ---
 
