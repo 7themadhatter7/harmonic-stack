@@ -141,6 +141,17 @@ python3 harmonic_stack_builder.py
 
 ## 📄 License
 
+### Free for Everyone at Home
+
+**Personal use**: Free forever.
+**Home business**: Free forever. Build your dreams.
+**Open source projects**: Free forever.
+**Education & research**: Free forever.
+
+### Commercial Licensing
+
+If you are a corporation (not a home business), contact us for licensing.
+
 **AGPL v3** for individuals and open source.  
 Commercial licensing available — contact: joe@allwatchedoverbymachinesoflovinggrace.org
 
