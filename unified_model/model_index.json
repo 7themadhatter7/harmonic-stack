@@ -1,0 +1,106 @@
+{
+  "models": {
+    "seed_only": {
+      "n_junctions": 2705,
+      "size_kb": 10.56640625,
+      "components": [
+        "seed"
+      ],
+      "path": "seed_only/unified_seed_only_junctions.npy"
+    },
+    "pocket": {
+      "n_junctions": 12281,
+      "size_kb": 47.97265625,
+      "components": [
+        "seed",
+        "capability_general"
+      ],
+      "path": "pocket/unified_pocket_junctions.npy"
+    },
+    "desktop": {
+      "n_junctions": 14678,
+      "size_kb": 57.3359375,
+      "components": [
+        "seed",
+        "capability_code",
+        "capability_general"
+      ],
+      "path": "desktop/unified_desktop_junctions.npy"
+    },
+    "workstation": {
+      "n_junctions": 17688,
+      "size_kb": 69.09375,
+      "components": [
+        "seed",
+        "capability_code",
+        "capability_math",
+        "capability_reasoning",
+        "capability_general"
+      ],
+      "path": "workstation/unified_workstation_junctions.npy"
+    },
+    "sovereign": {
+      "n_junctions": 140539,
+      "size_kb": 548.98046875,
+      "components": [
+        "seed",
+        "capability_code",
+        "capability_math",
+        "capability_reasoning",
+        "capability_general",
+        "crystal_growth"
+      ],
+      "path": "sovereign/unified_sovereign_junctions.npy"
+    }
+  },
+  "created_at": "2026-01-28T09:34:54.515150",
+  "tier_configs": {
+    "seed_only": {
+      "description": "Just the reference blend - minimal footprint",
+      "components": [
+        "seed"
+      ],
+      "expected_size_kb": 11
+    },
+    "pocket": {
+      "description": "Seed + general capability - mobile/embedded",
+      "components": [
+        "seed",
+        "general"
+      ],
+      "expected_size_kb": 50
+    },
+    "desktop": {
+      "description": "Seed + code + general - developer workstation",
+      "components": [
+        "seed",
+        "code",
+        "general"
+      ],
+      "expected_size_kb": 100
+    },
+    "workstation": {
+      "description": "All capabilities - full development",
+      "components": [
+        "seed",
+        "code",
+        "math",
+        "reasoning",
+        "general"
+      ],
+      "expected_size_kb": 200
+    },
+    "sovereign": {
+      "description": "All capabilities + growth crystals - maximum",
+      "components": [
+        "seed",
+        "code",
+        "math",
+        "reasoning",
+        "general",
+        "crystals"
+      ],
+      "expected_size_kb": 500
+    }
+  }
+}

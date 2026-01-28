@@ -1,0 +1,14 @@
+{
+  "name": "snowflake_crystal",
+  "seed_size": 2705,
+  "branch_count": 22042,
+  "total_size": 24747,
+  "depths": {
+    "1": 6292,
+    "2": 7190,
+    "3": 8560
+  },
+  "created_at": "2026-01-28T09:30:38.246221",
+  "pattern": "snowflake",
+  "max_depth": 3
+}

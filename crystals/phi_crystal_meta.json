@@ -1,0 +1,14 @@
+{
+  "name": "phi_crystal",
+  "seed_size": 2705,
+  "branch_count": 42182,
+  "total_size": 44887,
+  "depths": {
+    "1": 10790,
+    "2": 14694,
+    "3": 16698
+  },
+  "created_at": "2026-01-28T09:30:37.800526",
+  "pattern": "geometric",
+  "max_depth": 3
+}

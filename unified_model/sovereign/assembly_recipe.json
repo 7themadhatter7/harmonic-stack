@@ -1,0 +1,50 @@
+{
+  "tier": "sovereign",
+  "components": [
+    {
+      "name": "seed",
+      "capability": "foundation",
+      "source": "flavor_map/reference_blend",
+      "n_junctions": 2705,
+      "size_kb": 10.56640625
+    },
+    {
+      "name": "capability_code",
+      "capability": "code",
+      "source": "merged:qwen2_5-coder-7b,deepseek-coder-6_7b,starcoder2-7b",
+      "n_junctions": 8606,
+      "size_kb": 33.6171875
+    },
+    {
+      "name": "capability_math",
+      "capability": "math",
+      "source": "merged:deepseek-math-7b",
+      "n_junctions": 5269,
+      "size_kb": 20.58203125
+    },
+    {
+      "name": "capability_reasoning",
+      "capability": "reasoning",
+      "source": "merged:mistral-7b-instruct",
+      "n_junctions": 8760,
+      "size_kb": 34.21875
+    },
+    {
+      "name": "capability_general",
+      "capability": "general",
+      "source": "merged:qwen2-7b,qwen2-1_5b,tinyllama-1_1b",
+      "n_junctions": 9576,
+      "size_kb": 37.40625
+    },
+    {
+      "name": "crystal_growth",
+      "capability": "extended_geometry",
+      "source": "crystal_growth_simulator",
+      "n_junctions": 125556,
+      "size_kb": 490.453125
+    }
+  ],
+  "total_junctions": 140539,
+  "total_size_kb": 548.98046875,
+  "created_at": "2026-01-28T09:34:54.515108"
+}

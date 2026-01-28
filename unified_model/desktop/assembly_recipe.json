@@ -1,0 +1,29 @@
+{
+  "tier": "desktop",
+  "components": [
+    {
+      "name": "seed",
+      "capability": "foundation",
+      "source": "flavor_map/reference_blend",
+      "n_junctions": 2705,
+      "size_kb": 10.56640625
+    },
+    {
+      "name": "capability_code",
+      "capability": "code",
+      "source": "merged:qwen2_5-coder-7b,deepseek-coder-6_7b,starcoder2-7b",
+      "n_junctions": 8606,
+      "size_kb": 33.6171875
+    },
+    {
+      "name": "capability_general",
+      "capability": "general",
+      "source": "merged:qwen2-7b,qwen2-1_5b,tinyllama-1_1b",
+      "n_junctions": 9576,
+      "size_kb": 37.40625
+    }
+  ],
+  "total_junctions": 14678,
+  "total_size_kb": 57.3359375,
+  "created_at": "2026-01-28T09:34:54.513900"
+}

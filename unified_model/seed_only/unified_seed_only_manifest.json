@@ -1,0 +1,25 @@
+{
+  "name": "unified_seed_only",
+  "tier": "seed_only",
+  "description": "Just the reference blend - minimal footprint",
+  "n_junctions": 2705,
+  "size_kb": 10.56640625,
+  "components": [
+    "seed"
+  ],
+  "component_details": {
+    "seed": {
+      "capability": "foundation",
+      "n_junctions": 2705,
+      "source": "flavor_map/reference_blend"
+    }
+  },
+  "created_at": "2026-01-28T09:34:54.359089",
+  "provenance": {
+    "assembler": "unified_model_assembler.py",
+    "organization": "Ghost in the Machine Labs",
+    "philosophy": "AGI for the home. First to AGI."
+  },
+  "saved_at": "2026-01-28T09:34:54.513357",
+  "output_dir": "/home/joe/sparky/unified_model/seed_only"
+}
