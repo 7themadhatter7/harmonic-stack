@@ -1,0 +1,152 @@
+{
+  "name": "harmonic_stack_v1",
+  "created_at": "2026-01-27T19:56:46.139189",
+  "merge_core": {
+    "n_junctions": 45159,
+    "size_kb": 176.40234375,
+    "file": "merge_core_junctions.npy"
+  },
+  "models": [
+    {
+      "name": "deepseek-coder-1.3b-instruct",
+      "category": "code",
+      "n_junctions": 716,
+      "junction_kb": 2.796875,
+      "n_params": 1293459,
+      "size_gb": 3.677483869,
+      "junction_file": "model_junctions/deepseek-coder-1.3b-instruct_junctions.npy"
+    },
+    {
+      "name": "tinyllama-1.1b",
+      "category": "general",
+      "n_junctions": 0,
+      "junction_kb": 0.0,
+      "n_params": 0,
+      "size_gb": 4.422800793,
+      "junction_file": "model_junctions/tinyllama-1.1b_junctions.npy"
+    },
+    {
+      "name": "phi-2",
+      "category": "general",
+      "n_junctions": 34881,
+      "junction_kb": 136.25390625,
+      "n_params": 34881,
+      "size_gb": 5.135891328,
+      "junction_file": "model_junctions/phi-2_junctions.npy"
+    },
+    {
+      "name": "deepseek-coder-1.3b-instruct-hf",
+      "category": "code",
+      "n_junctions": 0,
+      "junction_kb": 0.0,
+      "n_params": 0,
+      "size_gb": 5.414213372,
+      "junction_file": "model_junctions/deepseek-coder-1.3b-instruct-hf_junctions.npy"
+    },
+    {
+      "name": "phi-2",
+      "category": "general",
+      "n_junctions": 0,
+      "junction_kb": 0.0,
+      "n_params": 0,
+      "size_gb": 5.5595077,
+      "junction_file": "model_junctions/phi-2_junctions.npy"
+    },
+    {
+      "name": "qwen2-1.5b",
+      "category": "general",
+      "n_junctions": 0,
+      "junction_kb": 0.0,
+      "n_params": 0,
+      "size_gb": 7.15521335,
+      "junction_file": "model_junctions/qwen2-1.5b_junctions.npy"
+    },
+    {
+      "name": "deepseek-coder-6.7b-instruct",
+      "category": "code",
+      "n_junctions": 716,
+      "junction_kb": 2.796875,
+      "n_params": 3440835,
+      "size_gb": 18.311346315,
+      "junction_file": "model_junctions/deepseek-coder-6.7b-instruct_junctions.npy"
+    },
+    {
+      "name": "deepseek-coder-6.7b-base",
+      "category": "code",
+      "n_junctions": 716,
+      "junction_kb": 2.796875,
+      "n_params": 3440835,
+      "size_gb": 18.312180417,
+      "junction_file": "model_junctions/deepseek-coder-6.7b-base_junctions.npy"
+    },
+    {
+      "name": "deepseek-coder-6.7b",
+      "category": "code",
+      "n_junctions": 7937,
+      "junction_kb": 31.00390625,
+      "n_params": 6740512768,
+      "size_gb": 26.962144086,
+      "junction_file": "model_junctions/deepseek-coder-6.7b_junctions.npy"
+    },
+    {
+      "name": "deepseek-math-7b",
+      "category": "math",
+      "n_junctions": 7974,
+      "junction_kb": 31.1484375,
+      "n_params": 6910365696,
+      "size_gb": 27.641550162,
+      "junction_file": "model_junctions/deepseek-math-7b_junctions.npy"
+    },
+    {
+      "name": "starcoder2-7b",
+      "category": "code",
+      "n_junctions": 7802,
+      "junction_kb": 30.4765625,
+      "n_params": 7173923840,
+      "size_gb": 28.695858652,
+      "junction_file": "model_junctions/starcoder2-7b_junctions.npy"
+    },
+    {
+      "name": "mistral-7b-instruct",
+      "category": "reasoning",
+      "n_junctions": 11327,
+      "junction_kb": 44.24609375,
+      "n_params": 7241732096,
+      "size_gb": 28.967021422,
+      "junction_file": "model_junctions/mistral-7b-instruct_junctions.npy"
+    },
+    {
+      "name": "qwen2.5-coder-7b",
+      "category": "code",
+      "n_junctions": 11044,
+      "junction_kb": 43.140625,
+      "n_params": 7615616512,
+      "size_gb": 30.462574406,
+      "junction_file": "model_junctions/qwen2.5-coder-7b_junctions.npy"
+    },
+    {
+      "name": "qwen2-7b",
+      "category": "general",
+      "n_junctions": 9243,
+      "junction_kb": 36.10546875,
+      "n_params": 7615616512,
+      "size_gb": 30.462574406,
+      "junction_file": "model_junctions/qwen2-7b_junctions.npy"
+    }
+  ],
+  "specialists": {
+    "code": "qwen2.5-coder-7b",
+    "general": "qwen2-7b",
+    "math": "deepseek-math-7b",
+    "reasoning": "mistral-7b-instruct"
+  },
+  "stats": {
+    "total_models": 14,
+    "total_params": 43305977434,
+    "total_original_gb": 241.180360278,
+    "total_individual_junctions": 92356,
+    "unified_junctions": 45159,
+    "overlap_percentage": 51.10333925245788,
+    "merge_core_kb": 176.40234375
+  }
+}

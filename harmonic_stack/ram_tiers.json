@@ -1,0 +1,220 @@
+{
+  "2gb": {
+    "name": "2gb",
+    "ram_target_mb": 2048,
+    "context_length": 2048,
+    "models": [
+      {
+        "name": "qwen2-7b",
+        "category": "general",
+        "params_b": 7.62,
+        "junctions": 9243,
+        "junction_kb": 36.1,
+        "topology_mb": 14525.6,
+        "streaming_runtime_mb": 655.2
+      },
+      {
+        "name": "mistral-7b-instruct",
+        "category": "reasoning",
+        "params_b": 7.24,
+        "junctions": 11327,
+        "junction_kb": 44.2,
+        "topology_mb": 13812.5,
+        "streaming_runtime_mb": 632.9
+      },
+      {
+        "name": "qwen2.5-coder-7b",
+        "category": "code",
+        "params_b": 7.62,
+        "junctions": 11044,
+        "junction_kb": 43.1,
+        "topology_mb": 14525.6,
+        "streaming_runtime_mb": 655.2
+      }
+    ],
+    "totals": {
+      "models": 3,
+      "params_b": 22.47,
+      "original_gb": 89.9,
+      "merge_core_kb": 176.4,
+      "topology_gb": 41.86,
+      "max_runtime_mb": 655.0
+    },
+    "categories": [
+      "code",
+      "general",
+      "reasoning"
+    ]
+  },
+  "4gb": {
+    "name": "4gb",
+    "ram_target_mb": 4096,
+    "context_length": 4096,
+    "models": [
+      {
+        "name": "qwen2-7b",
+        "category": "general",
+        "params_b": 7.62,
+        "junctions": 9243,
+        "junction_kb": 36.1,
+        "topology_mb": 14525.6,
+        "streaming_runtime_mb": 706.4
+      },
+      {
+        "name": "mistral-7b-instruct",
+        "category": "reasoning",
+        "params_b": 7.24,
+        "junctions": 11327,
+        "junction_kb": 44.2,
+        "topology_mb": 13812.5,
+        "streaming_runtime_mb": 684.1
+      },
+      {
+        "name": "qwen2.5-coder-7b",
+        "category": "code",
+        "params_b": 7.62,
+        "junctions": 11044,
+        "junction_kb": 43.1,
+        "topology_mb": 14525.6,
+        "streaming_runtime_mb": 706.4
+      },
+      {
+        "name": "deepseek-math-7b",
+        "category": "math",
+        "params_b": 6.91,
+        "junctions": 7974,
+        "junction_kb": 31.1,
+        "topology_mb": 13180.5,
+        "streaming_runtime_mb": 664.4
+      }
+    ],
+    "totals": {
+      "models": 4,
+      "params_b": 29.38,
+      "original_gb": 117.5,
+      "merge_core_kb": 176.4,
+      "topology_gb": 54.73,
+      "max_runtime_mb": 706.0
+    },
+    "categories": [
+      "math",
+      "code",
+      "general",
+      "reasoning"
+    ]
+  },
+  "8gb": {
+    "name": "8gb",
+    "ram_target_mb": 8192,
+    "context_length": 8192,
+    "models": [
+      {
+        "name": "qwen2-7b",
+        "category": "general",
+        "params_b": 7.62,
+        "junctions": 9243,
+        "junction_kb": 36.1,
+        "topology_mb": 14525.6,
+        "streaming_runtime_mb": 808.8
+      },
+      {
+        "name": "mistral-7b-instruct",
+        "category": "reasoning",
+        "params_b": 7.24,
+        "junctions": 11327,
+        "junction_kb": 44.2,
+        "topology_mb": 13812.5,
+        "streaming_runtime_mb": 786.5
+      },
+      {
+        "name": "qwen2.5-coder-7b",
+        "category": "code",
+        "params_b": 7.62,
+        "junctions": 11044,
+        "junction_kb": 43.1,
+        "topology_mb": 14525.6,
+        "streaming_runtime_mb": 808.8
+      },
+      {
+        "name": "deepseek-math-7b",
+        "category": "math",
+        "params_b": 6.91,
+        "junctions": 7974,
+        "junction_kb": 31.1,
+        "topology_mb": 13180.5,
+        "streaming_runtime_mb": 766.8
+      }
+    ],
+    "totals": {
+      "models": 4,
+      "params_b": 29.38,
+      "original_gb": 117.5,
+      "merge_core_kb": 176.4,
+      "topology_gb": 54.73,
+      "max_runtime_mb": 809.0
+    },
+    "categories": [
+      "math",
+      "code",
+      "general",
+      "reasoning"
+    ]
+  },
+  "12gb": {
+    "name": "12gb",
+    "ram_target_mb": 12288,
+    "context_length": 16384,
+    "models": [
+      {
+        "name": "qwen2-7b",
+        "category": "general",
+        "params_b": 7.62,
+        "junctions": 9243,
+        "junction_kb": 36.1,
+        "topology_mb": 14525.6,
+        "streaming_runtime_mb": 1013.6
+      },
+      {
+        "name": "mistral-7b-instruct",
+        "category": "reasoning",
+        "params_b": 7.24,
+        "junctions": 11327,
+        "junction_kb": 44.2,
+        "topology_mb": 13812.5,
+        "streaming_runtime_mb": 991.3
+      },
+      {
+        "name": "qwen2.5-coder-7b",
+        "category": "code",
+        "params_b": 7.62,
+        "junctions": 11044,
+        "junction_kb": 43.1,
+        "topology_mb": 14525.6,
+        "streaming_runtime_mb": 1013.6
+      },
+      {
+        "name": "deepseek-math-7b",
+        "category": "math",
+        "params_b": 6.91,
+        "junctions": 7974,
+        "junction_kb": 31.1,
+        "topology_mb": 13180.5,
+        "streaming_runtime_mb": 971.6
+      }
+    ],
+    "totals": {
+      "models": 4,
+      "params_b": 29.38,
+      "original_gb": 117.5,
+      "merge_core_kb": 176.4,
+      "topology_gb": 54.73,
+      "max_runtime_mb": 1014.0
+    },
+    "categories": [
+      "math",
+      "code",
+      "general",
+      "reasoning"
+    ]
+  }
+}
