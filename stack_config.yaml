@@ -91,7 +91,7 @@ hardware_profiles:
     reserve_pct: 0.15
     env: {}
     
-  x2_92gb:
+  evo_x2_92gb:
     name: "AMD Ryzen AI MAX+ 395 (92GB GPU)"
     gpu_mem_gb: 92
     peak_parallel: 12      # Best throughput from benchmarks
@@ -100,7 +100,7 @@ hardware_profiles:
     env:
       HSA_OVERRIDE_GFX_VERSION: "11.0.0"
       
-  x2_64gb:
+  evo_x2_64gb:
     name: "AMD Ryzen AI MAX+ 395 (64GB GPU)"
     gpu_mem_gb: 64
     peak_parallel: 8

@@ -12,11 +12,11 @@
 
 ## Executive Summary
 
-This report presents benchmark results comparing parallel inference performance on two consumer-grade AI workstations: the NVIDIA DGX Spark (GB10) and AMD Ryzen AI MAX+ 395 (X2). Our findings demonstrate that both platforms achieve **200+ tokens/second aggregate throughput** with proper configuration, validating the "AGI for the home" thesis at $2-3K price points.
+This report presents benchmark results comparing parallel inference performance on two consumer-grade AI workstations: the NVIDIA DGX Spark (GB10) and AMD Ryzen AI MAX+ 395 (Evo-X2). Our findings demonstrate that both platforms achieve **200+ tokens/second aggregate throughput** with proper configuration, validating the "AGI for the home" thesis at $2-3K price points.
 
 **Key Results:**
 - DGX Spark peaks at **334 tok/s** (16x parallel) with 8.82 tok/W efficiency
-- X2 (92GB GPU) peaks at **223 tok/s** (12x parallel)
+- Evo-X2 (92GB GPU) peaks at **223 tok/s** (12x parallel)
 - Critical setting: `OLLAMA_NUM_PARALLEL=64` enables true parallel scaling
 - Different architectures favor different parallelism sweet spots
 
@@ -41,7 +41,7 @@ This benchmark evaluates whether affordable consumer hardware can support produc
 
 ### 2.1 Hardware Specifications
 
-| Specification | SPARKY (DGX Spark) | ARCY (X2) |
+| Specification | SPARKY (DGX Spark) | ARCY (Evo-X2) |
 |---------------|-------------------|-----------|
 | **Processor** | NVIDIA GB10 | AMD Ryzen AI MAX+ 395 |
 | **Architecture** | Grace Hopper (ARM) | Zen 5 + RDNA 3.5 |
@@ -99,7 +99,7 @@ This benchmark evaluates whether affordable consumer hardware can support produc
 |-------|-----|-----|-----|-----|------|------|----------|
 | qwen3:14b | 20.0 | 32.4 | 58.1 | 85.3 | 104.6 | **~120** | 16x |
 
-### 3.2 X2 (Ryzen AI MAX+ 395, 92GB GPU) - Results
+### 3.2 Evo-X2 (Ryzen AI MAX+ 395, 92GB GPU) - Results
 
 | Model | 1x | 2x | 4x | 8x | 12x | 16x | 20x | **Peak** |
 |-------|-----|-----|-----|------|------|------|------|----------|
@@ -107,7 +107,7 @@ This benchmark evaluates whether affordable consumer hardware can support produc
 
 ### 3.3 Cross-Platform Comparison (qwen3:4b)
 
-| Parallel | ARCY (X2) | SPARKY (DGX) | Ratio |
+| Parallel | ARCY (Evo-X2) | SPARKY (DGX) | Ratio |
 |----------|-----------|--------------|-------|
 | 1x | 27.7 | 21.7 | **128%** |
 | 2x | 39.1 | 35.9 | **109%** |
@@ -129,7 +129,7 @@ This benchmark evaluates whether affordable consumer hardware can support produc
 - Peak efficiency at 16x: 8.82 tok/W
 - Memory bandwidth supports sustained high parallelism
 
-**X2 (Ryzen AI MAX+ 395):**
+**Evo-X2 (Ryzen AI MAX+ 395):**
 - Strong single-stream performance (27.7 vs 21.7 tok/s)
 - Peaks at 12x parallel, then degrades
 - Unified memory architecture shows different saturation point
@@ -139,7 +139,7 @@ This benchmark evaluates whether affordable consumer hardware can support produc
 
 The 2:1 memory bandwidth ratio (500 vs 256 GB/s) correlates with parallel scaling limits:
 - DGX peaks at 16-32x
-- X2 peaks at 12x
+- Evo-X2 peaks at 12x
 
 This suggests memory bandwidth, not compute, is the limiting factor for parallel inference.
 
@@ -154,7 +154,7 @@ This suggests memory bandwidth, not compute, is the limiting factor for parallel
 - Required for RDNA 3.5 GPU recognition
 - Set to "11.0.0" for Radeon 8060S
 
-**GPU Memory Allocation (X2):**
+**GPU Memory Allocation (Evo-X2):**
 - BIOS setting for iGPU memory
 - 92GB allocation doubled throughput vs 64GB default
 
@@ -204,7 +204,7 @@ Model RAM = base_weights + (num_parallel × kv_cache_per_slot)
 
 3. **Different architectures suit different workloads:**
    - DGX Spark: Batch processing, high parallelism (16-32x)
-   - X2: Interactive use, moderate parallelism (8-12x)
+   - Evo-X2: Interactive use, moderate parallelism (8-12x)
 
 4. **Memory bandwidth determines scaling ceiling.** The 2:1 bandwidth ratio maps to parallel limits.
 

@@ -61,7 +61,7 @@ HARDWARE_PROFILES = {
         'reserve_pct': 0.15,
         'env': {},
     },
-    'x2_92gb': {
+    'evo_x2_92gb': {
         'name': 'AMD Ryzen AI MAX+ 395 (92GB GPU)',
         'gpu_mem_gb': 92,
         'peak_parallel': 12,  # Sweet spot from benchmarks
@@ -69,7 +69,7 @@ HARDWARE_PROFILES = {
         'reserve_pct': 0.15,
         'env': {'HSA_OVERRIDE_GFX_VERSION': '11.0.0'},
     },
-    'x2_64gb': {
+    'evo_x2_64gb': {
         'name': 'AMD Ryzen AI MAX+ 395 (64GB GPU)',
         'gpu_mem_gb': 64,
         'peak_parallel': 8,
@@ -224,9 +224,9 @@ def detect_hardware() -> Dict:
         # Estimate GPU allocation based on system memory
         # X2 typically has 64GB or 92GB GPU from 128GB total
         if sys_mem >= 120:
-            profile = 'x2_92gb'  # Assume 92GB GPU config
+            profile = 'evo_x2_92gb'  # Assume 92GB GPU config
         else:
-            profile = 'x2_64gb'
+            profile = 'evo_x2_64gb'
         return {
             'profile': profile,
             'detected': amd['name'],
@@ -257,9 +257,9 @@ def detect_hardware() -> Dict:
     # Fallback: use system memory as proxy
     sys_mem = detect_system_memory()
     if sys_mem >= 120:
-        return {'profile': 'x2_92gb', 'detected': 'Unknown (128GB RAM)', **HARDWARE_PROFILES['x2_92gb']}
+        return {'profile': 'evo_x2_92gb', 'detected': 'Unknown (128GB RAM)', **HARDWARE_PROFILES['evo_x2_92gb']}
     elif sys_mem >= 60:
-        return {'profile': 'x2_64gb', 'detected': 'Unknown (64GB RAM)', **HARDWARE_PROFILES['x2_64gb']}
+        return {'profile': 'evo_x2_64gb', 'detected': 'Unknown (64GB RAM)', **HARDWARE_PROFILES['evo_x2_64gb']}
     else:
         return {'profile': 'generic_24gb', 'detected': 'Unknown', **HARDWARE_PROFILES['generic_24gb']}
 
