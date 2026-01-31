@@ -116,7 +116,7 @@ The ARC benchmark was designed to measure "general intelligence"—the ability t
 
 ### For Compression
 
-This connects to our Harmonic Stack research: if intelligence emerges from a small set of geometric primitives (our 194,471 junctions), then ARC-style reasoning may be achievable with minimal parameter counts.
+This connects to our Harmonic Stack research: if intelligence emerges from compositional primitives, then ARC-style reasoning may be achievable with minimal parameter counts.
 
 ### Next Steps
 
