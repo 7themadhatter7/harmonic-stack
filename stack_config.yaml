@@ -1,0 +1,189 @@
+# Harmonic Stack Configuration
+# Ghost in the Machine Labs
+#
+# This file defines model specifications and hardware profiles.
+# Edit to customize your deployment.
+
+# ============================================================================
+# MODEL DEFINITIONS
+# ============================================================================
+# Each model specifies:
+#   base_gb: Model weights memory footprint
+#   kv_gb:   KV cache per parallel slot
+#   tier:    Priority (1=highest, 4=lowest)
+#   source:  Base Ollama model to use
+
+models:
+  # Tier 1: Executive (always max parallel)
+  executive:
+    base_gb: 2.5
+    kv_gb: 0.3
+    tier: 1
+    source: qwen3:4b
+    system_prompt: "You are the executive coordinator..."
+    
+  operator:
+    base_gb: 2.5
+    kv_gb: 0.3
+    tier: 1
+    source: qwen3:4b
+    system_prompt: "You are the operations manager..."
+
+  # Tier 2: Directors (high parallel)
+  technical_director:
+    base_gb: 5.2
+    kv_gb: 0.5
+    tier: 2
+    source: qwen3:8b
+    system_prompt: "You are the technical director..."
+    
+  research_director:
+    base_gb: 5.2
+    kv_gb: 0.5
+    tier: 2
+    source: qwen3:8b
+    system_prompt: "You are the research director..."
+    
+  creative_director:
+    base_gb: 5.2
+    kv_gb: 0.5
+    tier: 2
+    source: qwen3:8b
+    system_prompt: "You are the creative director..."
+
+  # Tier 3: Specialists (medium parallel)
+  analyst:
+    base_gb: 5.2
+    kv_gb: 0.5
+    tier: 3
+    source: qwen3:8b
+    
+  coder:
+    base_gb: 9.3
+    kv_gb: 0.8
+    tier: 3
+    source: qwen3:14b
+    
+  reviewer:
+    base_gb: 5.2
+    kv_gb: 0.5
+    tier: 3
+    source: qwen3:8b
+
+  # Tier 4: Heavy specialists (lower parallel, high capability)
+  architect:
+    base_gb: 18.0
+    kv_gb: 1.2
+    tier: 4
+    source: qwen3:30b-a3b
+
+# ============================================================================
+# HARDWARE PROFILES
+# ============================================================================
+# Benchmark-tuned settings for known hardware
+
+hardware_profiles:
+  dgx_spark:
+    name: "NVIDIA DGX Spark (GB10)"
+    gpu_mem_gb: 128
+    peak_parallel: 16      # Best throughput from benchmarks
+    max_parallel: 32       # Maximum stable
+    reserve_pct: 0.15
+    env: {}
+    
+  x2_92gb:
+    name: "AMD Ryzen AI MAX+ 395 (92GB GPU)"
+    gpu_mem_gb: 92
+    peak_parallel: 12      # Best throughput from benchmarks
+    max_parallel: 16
+    reserve_pct: 0.15
+    env:
+      HSA_OVERRIDE_GFX_VERSION: "11.0.0"
+      
+  x2_64gb:
+    name: "AMD Ryzen AI MAX+ 395 (64GB GPU)"
+    gpu_mem_gb: 64
+    peak_parallel: 8
+    max_parallel: 12
+    reserve_pct: 0.15
+    env:
+      HSA_OVERRIDE_GFX_VERSION: "11.0.0"
+
+  generic_48gb:
+    name: "Generic 48GB GPU"
+    gpu_mem_gb: 48
+    peak_parallel: 8
+    max_parallel: 12
+    reserve_pct: 0.20
+    env: {}
+    
+  generic_24gb:
+    name: "Generic 24GB GPU"
+    gpu_mem_gb: 24
+    peak_parallel: 4
+    max_parallel: 8
+    reserve_pct: 0.20
+    env: {}
+
+  generic_16gb:
+    name: "Generic 16GB GPU"
+    gpu_mem_gb: 16
+    peak_parallel: 4
+    max_parallel: 6
+    reserve_pct: 0.25
+    env: {}
+
+# ============================================================================
+# STACK PRESETS
+# ============================================================================
+# Pre-defined model combinations for different use cases
+
+stacks:
+  full:
+    description: "Complete Harmonic Stack"
+    models:
+      - executive
+      - operator
+      - technical_director
+      - research_director
+      - creative_director
+      - coder
+      - analyst
+      - architect
+      
+  standard:
+    description: "Standard deployment (no heavy models)"
+    models:
+      - executive
+      - operator
+      - technical_director
+      - research_director
+      - creative_director
+      - coder
+      - analyst
+      
+  minimal:
+    description: "Minimal stack for constrained hardware"
+    models:
+      - executive
+      - technical_director
+      - coder
+      
+  dev:
+    description: "Development/coding focused"
+    models:
+      - operator
+      - technical_director
+      - coder
+      - reviewer
+
+# ============================================================================
+# TIER ALLOCATION RULES
+# ============================================================================
+# How parallel slots scale by tier relative to peak_parallel
+
+tier_scaling:
+  1: 1.00    # Tier 1 gets 100% of peak_parallel
+  2: 0.75    # Tier 2 gets 75% of peak_parallel
+  3: 0.50    # Tier 3 gets 50% of peak_parallel
+  4: 0.33    # Tier 4 gets 33% of peak_parallel
