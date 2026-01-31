@@ -11,7 +11,7 @@
 
 **The wire thinks.**
 
-Traditional AI treats inference as a query → engine → response pipeline. We replaced this with **RAM-printed digital components** that route signals through computed topology.
+Traditional AI treats inference as a query → engine → response pipeline. We replaced this with **embedded routing components** that direct signals through computed topology.
 
 ```
 OLD: Query → Inference Engine → Response
@@ -34,7 +34,7 @@ NEW: Signal → Cognitive Bus → Destination
 | hs-analysis | qwen3:14b | Deep Reasoning | ~10GB |
 | hs-ethics | qwen3:14b | Safety/Alignment | ~10GB |
 | hs-reserve | qwen3:7b | Overflow | ~5GB |
-| hs-router | qwen3:1.7b | Interference Engine | ~2GB |
+| hs-router | qwen3:1.7b | Fast Routing | ~2GB |
 | **TOTAL** | | | **~87GB** |
 
 ---
@@ -55,7 +55,7 @@ python3 harmonic_stack_8x.py
 | Document | Description |
 |----------|-------------|
 | [Death of the Inference Engine](docs/death_of_inference_engine.md) | The paradigm shift |
-| [Crystal Chain Architecture](docs/crystal_chain_whitepaper.md) | Seed composition |
+| [Crystal Chain Architecture](docs/crystal_chain_whitepaper.md) | Layered context patterns |
 
 ---
 

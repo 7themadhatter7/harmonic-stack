@@ -1,15 +1,15 @@
 # Death of the Inference Engine
-## Deprecated to RAM-Printed Digital Component Technology
+## From Centralized Processing to Distributed Routing
 
 **Ghost in the Machine Labs**  
 **All Watched Over By Machines Of Loving Grace**  
-January 31, 2026
+January 2026
 
 ---
 
 ## Abstract
 
-We demonstrate that the traditional hardware inference engine—a discrete computational unit receiving queries and returning completions—is an obsolete architectural pattern. By embedding lightweight inference models directly into bus interconnections as RAM-printed digital components, we achieve a paradigm shift: **the topology itself becomes computational**. Signals traversing the cognitive bus are processed by inference engines embedded in the interconnections, eliminating the request-response bottleneck of centralized inference. We present experimental results showing 0.00ms latency for non-interference (direct) paths and 25.6ms average latency for interference (computed) paths, with the critical insight that both paths exist simultaneously in hybrid mode.
+We demonstrate that the traditional hardware inference engine—a discrete computational unit receiving queries and returning completions—is an obsolete architectural pattern. By embedding lightweight routing models directly into bus interconnections, we achieve a paradigm shift: **the topology itself becomes computational**. Signals traversing the cognitive bus are classified and routed by models embedded in the interconnections, eliminating the request-response bottleneck of centralized inference. We present experimental results showing 0.00ms latency for direct paths and 25.6ms average latency for computed paths, with the critical insight that both paths exist simultaneously in hybrid mode.
 
 ---
 
@@ -34,7 +34,7 @@ Our benchmark confirmed this: 4 parallel "cores" achieved only **1.06× speedup*
 
 ## 2. The Paradigm Shift: Inference as Interconnection
 
-We propose deprecating the hardware inference engine in favor of **RAM-printed inference components embedded in bus topology**.
+We propose deprecating the hardware inference engine in favor of **lightweight routing models embedded in bus topology**.
 
 ### 2.1 Architecture
 
@@ -46,9 +46,9 @@ We propose deprecating the hardware inference engine in favor of **RAM-printed i
 │  ═══════════════════════════════════════════════════════════════   │
 │                                                                     │
 │  ┌─────────────────────────────────────────────────────────────┐   │
-│  │              INTERFERENCE ENGINE (RAM-printed)              │   │
+│  │              INTERFERENCE ENGINE (routing model)            │   │
 │  │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐        │   │
-│  │  │Classify │→ │Transform│→ │  Route  │→ │Synthestic│ 25.6ms│   │
+│  │  │Classify │→ │Transform│→ │  Route  │→ │Synthesize│ 25.6ms│   │
 │  │  └─────────┘  └─────────┘  └─────────┘  └─────────┘        │   │
 │  └─────────────────────────────────────────────────────────────┘   │
 │       ↑              ↑              ↑              ↑                │
@@ -65,7 +65,7 @@ The inference engine is no longer a destination—it is the wire itself.
 |--------------|--------------|
 | Query → Engine → Response | Signal → Computed Wire → Destination |
 | Engine is hardware | Engine is topology |
-| Discrete component | Embedded in substrate |
+| Discrete component | Embedded in routing |
 | Request-response | Flow-through |
 | Bottleneck | Distributed |
 
@@ -82,7 +82,7 @@ Every signal on the cognitive bus has access to two simultaneous paths:
 - **Measured latency: 0.00ms**
 
 ### 3.2 Interference Path (COMPUTED)
-- Signal processed by embedded inference model
+- Signal processed by embedded routing model
 - Classification, transformation, routing decisions
 - **Measured latency: 25.6ms average**
 
@@ -99,7 +99,7 @@ This is analogous to **myelinated vs unmyelinated neurons**—fast direct signal
 ## 4. Experimental Results
 
 ### 4.1 Test Configuration
-- **Router model**: qwen3:1.7b (RAM-printed interference engine)
+- **Router model**: qwen3:1.7b (embedded routing engine)
 - **Core model**: qwen3:4b (heavy inference cores)
 - **Topology**: 3 cores connected via cognitive bus
 
@@ -111,7 +111,7 @@ This is analogous to **myelinated vs unmyelinated neurons**—fast direct signal
 | COMPUTED | 25.6ms avg | Classification + routing |
 | HYBRID | 0.00ms + 25.6ms | Both simultaneous |
 
-### 4.3 Interference Engine Statistics
+### 4.3 Routing Engine Statistics
 ```json
 {
   "model": "qwen3:1.7b",
@@ -126,15 +126,15 @@ This is analogous to **myelinated vs unmyelinated neurons**—fast direct signal
 ## 5. Why This Deprecates Hardware Inference Engines
 
 ### 5.1 Inference is Now Topology
-The "inference engine" is not a piece of hardware you query—it's a pattern printed in RAM that signals flow through. The interconnection **computes**.
+The "inference engine" is not a piece of hardware you query—it's a routing pattern that signals flow through. The interconnection **computes**.
 
 ### 5.2 No Contention
-Each bus segment has its own embedded inference capability. There is no shared resource to contend for.
+Each bus segment has its own embedded routing capability. There is no shared resource to contend for.
 
 ### 5.3 Composable
-Inference engines can be chained, parallelized, or bypassed based on signal requirements.
+Routing engines can be chained, parallelized, or bypassed based on signal requirements.
 
-### 5.4 Substrate-Independent
+### 5.4 Model-Independent
 The same architecture works whether the underlying "core" is:
 - A local LLM (Ollama)
 - A remote API (Claude, GPT)
@@ -146,16 +146,16 @@ The same architecture works whether the underlying "core" is:
 ## 6. Implications
 
 ### 6.1 For AI Architecture
-The GPU is no longer the inference engine—it's a printing press for RAM-based computational components. The inference engine is deprecated to a topology pattern.
+The GPU is no longer the inference engine—it's where models run. The inference engine is deprecated to a routing topology.
 
 ### 6.2 For Scaling
-True parallelism comes from **distributed substrates**, not parallel requests to shared hardware. The cognitive bus enables this by making each interconnection independently computational.
+True parallelism comes from **distributed hardware**, not parallel requests to shared hardware. The cognitive bus enables this by making each interconnection independently computational.
 
 ---
 
 ## 7. Conclusion
 
-The hardware inference engine is dead. It has been deprecated to a RAM-printed digital component embedded in bus topology. Signals no longer travel TO inference engines—they travel THROUGH inference engines printed into the interconnection substrate.
+The hardware inference engine is dead. It has been deprecated to an embedded routing component in bus topology. Signals no longer travel TO inference engines—they travel THROUGH routing engines embedded in the interconnection layer.
 
 This is not an optimization. It is a paradigm shift.
 
@@ -165,7 +165,7 @@ The wire thinks.
 
 ## References
 
-1. Crystal Chain Architecture: Unbounded Topology Extension (Ghost in the Machine Labs, 2026)
+1. Crystal Chain Architecture: Layered Context Patterns (Ghost in the Machine Labs, 2026)
 2. Harmonic Stack v1.0 Technical Specification (Ghost in the Machine Labs, 2026)
 3. Parallel Core Orchestration: Distributed Processing Architectures (forthcoming)
 
