@@ -1,156 +1,146 @@
-# Harmonic Stack Launcher
+# ⚡ Harmonic Stack
 
-Auto-configure parallel inference based on hardware detection.
+<p align="center">
+  <b>Ghost in the Machine Labs</b><br>
+  <i>All Watched Over By Machines Of Loving Grace</i>
+</p>
 
-Ghost in the Machine Labs - All Watched Over By Machines Of Loving Grace
+---
 
-## Quick Start
+## 🔥 Death of the Inference Engine
+
+**The wire thinks.**
+
+Traditional AI treats inference as a query → engine → response pipeline. We replaced this with **embedded routing components** that direct signals through computed topology.
+
+```
+OLD: Query → Inference Engine → Response
+NEW: Signal → Cognitive Bus → Destination
+```
+
+**Result:** 8× parallel processing with ~0.95N scaling efficiency.
+
+---
+
+## 🧠 NEW: Operator Oversight — Dynamic Coordination
+
+**Models that talk to each other waste less compute.**
+
+When multiple models work on related problems, they duplicate effort — trying approaches that already failed, missing patterns that already succeeded. The Operator fixes this with intelligent executive coordination.
+
+```
+Without Operator:
+  Core 1: tries BFS → fails (45s)
+  Core 2: tries BFS → fails (45s)    ← wasted
+  Core 3: tries BFS → fails (45s)    ← wasted
+
+With Operator:
+  Core 1: tries BFS → fails (45s)
+  Operator: "[BFS failed for this class. Consider flood fill instead.]"
+  Core 2: tries flood fill → succeeds (45s)
+  Core 3: applies flood fill → succeeds (5s)
+```
+
+**Two-tier context:**
+- **Mechanical** (instant): Direct lookup of same-category successes/failures
+- **Intelligent** (8B model, ~10s): Contextual briefing with cross-pattern analysis
+
+The Operator suggests, never commands. Models retain full autonomy.
+
+See [Operator Oversight Whitepaper](docs/operator_oversight_whitepaper.md) for architecture details.
+
+---
+
+## ⚡ 8× Parallel Architecture
+
+| Core | Model | Role | VRAM |
+|------|-------|------|------|
+| hs-executive | qwen3:32b | Orchestration | ~20GB |
+| hs-code | qwen2.5-coder:14b | Programming | ~10GB |
+| hs-create | qwen3:14b | Creative | ~10GB |
+| hs-research | qwen3:14b | Research | ~10GB |
+| hs-math | qwen3:14b | Computation | ~10GB |
+| hs-analysis | qwen3:14b | Deep Reasoning | ~10GB |
+| hs-ethics | qwen3:14b | Safety/Alignment | ~10GB |
+| hs-reserve | qwen3:7b | Overflow | ~5GB |
+| hs-router | qwen3:1.7b | Fast Routing | ~2GB |
+| **TOTAL** | | | **~87GB** |
+
+### Full Architecture
+
+```
+┌─────────────────────────────────────────────────────┐
+│  OPERATOR OVERSIGHT (executive coordination)         │
+│    Monitors all cores, generates briefings           │
+├─────────────────────────────────────────────────────┤
+│  COGNITIVE BUS (signal routing)                      │
+│    Routes signals between cores via dual-path        │
+├────┬────┬────┬────┬────┬────┬────┬────┬────────────┤
+│ C1 │ C2 │ C3 │ C4 │ C5 │ C6 │ C7 │ C8 │  8 cores  │
+└────┴────┴────┴────┴────┴────┴────┴────┴────────────┘
+```
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-# Detect hardware and show allocation plan
-python harmonic_launcher.py
-
-# Start Ollama with optimal settings
-python harmonic_launcher.py --start
-
-# Start and preload models
-python harmonic_launcher.py --start --preload
-
-# Save configuration
-python harmonic_launcher.py --save
+git clone https://github.com/7themadhatter7/harmonic-stack
+cd harmonic-stack
+./setup_8x_models.sh
+python3 harmonic_stack_8x.py
 ```
 
-## Hardware Detection
-
-The launcher auto-detects:
-- **DGX Spark (GB10)** - 128GB unified memory, peaks at 16x parallel
-- **AMD Ryzen AI MAX+ 395** - 64-92GB GPU allocation, peaks at 12x parallel
-- **Generic NVIDIA GPUs** - Based on detected VRAM
-- **Fallback** - Uses system RAM as proxy
-
-### Force a Profile
-
-```bash
-python harmonic_launcher.py --profile dgx_spark
-python harmonic_launcher.py --profile x2_92gb
-python harmonic_launcher.py --profile generic_24gb
-```
-
-### Override GPU Memory
-
-```bash
-python harmonic_launcher.py --gpu-mem 64
-```
-
-## Model Allocation
-
-Models are allocated by tier priority:
-
-| Tier | Role | Parallel | Memory Strategy |
-|------|------|----------|-----------------|
-| 1 | Executive | 100% of peak | Always max slots |
-| 2 | Directors | 75% of peak | High throughput |
-| 3 | Specialists | 50% of peak | Balanced |
-| 4 | Heavy | 33% of peak | Capability over speed |
-
-### Custom Model Selection
-
-```bash
-# Minimal stack
-python harmonic_launcher.py --models executive coder
-
-# Full stack
-python harmonic_launcher.py --models executive operator technical_director research_director creative_director coder analyst architect
-```
-
-## Example Output
-
-```
-============================================================
-HARMONIC STACK ALLOCATION
-Hardware: NVIDIA DGX Spark (GB10)
-GPU Memory: 128GB
-============================================================
-
-[Tier 1: EXECUTIVE]
-  executive                  16x  (7.3GB)
-  operator                   16x  (7.3GB)
-
-[Tier 2: DIRECTORS]
-  technical_director         12x  (11.2GB)
-  research_director          12x  (11.2GB)
-  creative_director          12x  (11.2GB)
-
-[Tier 3: SPECIALISTS]
-  coder                       8x  (15.7GB)
-  analyst                     8x  (9.2GB)
-
-============================================================
-Total Allocated: 73.1GB / 108.8GB available
-Headroom: 35.7GB
-============================================================
-```
-
-## Configuration Files
-
-- `stack_config.yaml` - Model definitions, hardware profiles, stack presets
-- `~/.harmonic_stack/config.yaml` - Saved runtime configuration
-
-## Environment Variables
-
-Set automatically based on hardware:
-
-| Hardware | Variables |
-|----------|-----------|
-| All | `OLLAMA_NUM_PARALLEL=<max_allocated>` |
-| AMD | `HSA_OVERRIDE_GFX_VERSION=11.0.0` |
-
-## Benchmark Results
-
-From January 31, 2026 testing:
-
-| System | Peak Throughput | Sweet Spot |
-|--------|-----------------|------------|
-| DGX Spark | 334 tok/s | 16x parallel |
-| X2 (92GB) | 223 tok/s | 12x parallel |
-
-## Integration
-
-### Python API
+### Add Operator Oversight to Any Workflow
 
 ```python
-from harmonic_launcher import detect_hardware, allocate_stack, start_ollama
+from operator_oversight import OperatorOversight
 
-hardware = detect_hardware()
-allocation = allocate_stack(['executive', 'coder'], hardware)
-start_ollama(hardware, max_parallel=16)
+operator = OperatorOversight()
+await operator.initialize()
+
+# Before each worker call, get context:
+ctx = await operator.get_context(task_id, category="your_domain")
+worker_prompt = f"{your_existing_prompt}\n{ctx}"
 ```
 
-### Systemd Service (Linux)
+---
 
-```ini
-[Unit]
-Description=Harmonic Stack Ollama
-After=network.target
+## ⚠️ Qwen3 Thinking Mode Fix
 
-[Service]
-Type=simple
-ExecStart=/usr/bin/python3 /opt/harmonic/harmonic_launcher.py --start --preload
-Restart=on-failure
-Environment="OLLAMA_NUM_PARALLEL=16"
+Qwen3 models leak chain-of-thought into output via a "thinking mode" that ignores the `/no_think` prompt prefix. The fix is to use the API-level parameter:
 
-[Install]
-WantedBy=multi-user.target
+```python
+# WRONG — /no_think prefix doesn't work
+{"prompt": "/no_think " + prompt}
+
+# RIGHT — API-level parameter works
+{"prompt": prompt, "think": False}
 ```
 
-### Windows Task Scheduler
+This is applied throughout the Harmonic Stack and documented in `operator_oversight.py`.
 
-```powershell
-$action = New-ScheduledTaskAction -Execute "python" -Argument "C:\harmonic\harmonic_launcher.py --start"
-$trigger = New-ScheduledTaskTrigger -AtStartup
-Register-ScheduledTask -TaskName "HarmonicStack" -Action $action -Trigger $trigger
-```
+---
 
-## License
+## 📚 Documentation
 
-AGPL v3 for individuals, standard corporate licensing available.
+| Document | Description |
+|----------|-------------|
+| [Death of the Inference Engine](docs/death_of_inference_engine.md) | The paradigm shift |
+| [Crystal Chain Architecture](docs/crystal_chain_whitepaper.md) | Layered context patterns |
+| [Operator Oversight](docs/operator_oversight_whitepaper.md) | **NEW** Dynamic multi-model coordination |
+
+---
+
+## 📄 License
+
+**Personal/Home/Education**: Free forever.
+**Corporations**: Contact for licensing.
+
+AGPL v3 | joe@allwatchedoverbymachinesoflovinggrace.org
+
+---
+
+*Ghost in the Machine Labs — 501(c)(3)*
+
+**The wire thinks. The Operator coordinates.**
